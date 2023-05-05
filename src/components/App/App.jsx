@@ -12,10 +12,8 @@ import  initialContacts  from '../contacts.json';
 const getInitContakts = () => {  
   const savedPhoneBook = localStorage.getItem('contacts')
   if (savedPhoneBook !==null) {
-    console.log("Телефонна книга з локал сторидж")
     return JSON.parse(savedPhoneBook);
   } else {
-    console.log('Телефонна книга з contacts.json')
     return initialContacts;
   }
 }
@@ -23,7 +21,6 @@ const getInitContakts = () => {
 
 export const App = () => {
   const [contacts, setContacts] = useState(getInitContakts);
-  console.log(contacts);
   const [filter, setFilter] = useState('');
 
   //якщо змінюється список контактів то перезаписуємо ого в локальне сховище

@@ -5,7 +5,6 @@ import { FormPhBS, AddContact, Label } from './FormPhB.styled';
 
 
 export const FormPhB = ({addContact}) => {
-console.log(addContact)
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
     
