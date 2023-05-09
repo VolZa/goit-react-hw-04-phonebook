@@ -1,4 +1,3 @@
-// import { Component } from 'react';
 import { useState} from "react";
 import { nanoid } from 'nanoid'
 import { FormPhBS, AddContact, Label } from './FormPhB.styled';
