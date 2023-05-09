@@ -33,15 +33,15 @@ export const App = () => {
      setFilter(value)
   }
 
-  const addOneContact = (contact) => {
+  const addOneContact = contact => {
     const names = contacts.map(cont => cont.name);
-    if (names.some(n => n.toLocaleLowerCase() === contact.name.toLocaleLowerCase())) {
-      alert(`${contact.name} is already in contacts`)
+    if (!names.some(n => n.toLocaleLowerCase() === contact.name.toLocaleLowerCase())) {
+      setContacts([...contacts, contact])
     } else {
-      setContacts( [...contacts, contact] ) 
+      alert(`${contact.name} is already in contacts`)
     }
-  }
-  
+  };
+
   const delContact = (id) => {
     setContacts(prevState => prevState.filter(contact => contact.id !== id));
   }
