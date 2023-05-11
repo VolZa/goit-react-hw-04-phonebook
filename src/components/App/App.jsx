@@ -4,14 +4,14 @@ import { Title } from "components/title/Title";
 import { GlobalStyle } from "./Global.styled";
 import { ContactList } from 'components/contact-list/ContactList';
 import { Filter } from 'components/filter/Filter';
-
+import { nanoid } from 'nanoid'
 import { Layout } from 'components/layout/Layout';
 import  initialContacts  from '../contacts.json';
 
 //Патерн ініціалізації з локального сховища (туткод синхронний)
 const getInitContakts = () => {  
   const savedPhoneBook = localStorage.getItem('contacts')
-  if (savedPhoneBook !==null) {
+  if (savedPhoneBook !== "[]") {
     return JSON.parse(savedPhoneBook);
   } else {
     return initialContacts;
@@ -33,12 +33,14 @@ export const App = () => {
      setFilter(value)
   }
 
-  const addOneContact = contact => {
+  const addOneContact = (name, number) => {
     const names = contacts.map(cont => cont.name);
-    if (!names.some(n => n.toLocaleLowerCase() === contact.name.toLocaleLowerCase())) {
+    if (!names.some(n => n.toLocaleLowerCase() === name.toLocaleLowerCase())) {
+      const id = nanoid();
+      const contact = {id, name, number};
       setContacts([...contacts, contact])
     } else {
-      alert(`${contact.name} is already in contacts`)
+      alert(`${name} is already in contacts`)
     }
   };
 

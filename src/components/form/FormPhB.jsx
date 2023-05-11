@@ -1,5 +1,5 @@
 import { useState} from "react";
-import { nanoid } from 'nanoid'
+// import { nanoid } from 'nanoid'
 import { FormPhBS, AddContact, Label } from './FormPhB.styled';
 
 
@@ -8,8 +8,8 @@ export const FormPhB = ({addContact}) => {
     const [number, setNumber] = useState('');
     
     const onSubmit = () => {
-        const id = nanoid();
-        addContact({  id, name, number });
+        // const id = nanoid();
+        addContact( name, number );
       };
 
     return (
